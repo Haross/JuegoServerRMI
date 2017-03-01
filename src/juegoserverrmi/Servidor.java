@@ -1,6 +1,5 @@
 package juegoserverrmi;
-import java.rmi.*;
-import java.rmi.server.*;
+import java.rmi.registry.Registry;
 
 class Servidor  {
     static public void main (String args[]){
@@ -10,8 +9,13 @@ class Servidor  {
 
             System.setProperty ("java.rmi.server.codebase", "file:C:/Users/Ernesto/Desktop/RMI/");
 
-               ServiciosMetodos objetoRemoto = new ServiciosMetodos(); 
-               Naming.rebind("//localhost/ObjetoRemoto", objetoRemoto);
+            Registry r = java.rmi.registry.LocateRegistry.createRegistry(1099);
+            //ServiciosMetodos obj = new ServiciosMetodos(); 
+
+            r.rebind("ObjetoRemoto", new ServiciosMetodos());
+
+               
+               //Naming.rebind("//localhost/ObjetoRemoto", objetoRemoto);
 
         }catch(Exception e){
             System.out.println("Algo fallo en el Servidor :'v");
@@ -19,3 +23,4 @@ class Servidor  {
     
     }
 }
+
