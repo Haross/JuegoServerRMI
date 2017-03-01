@@ -5,11 +5,14 @@
  */
 package juegoserverrmi;
 
+import hibernate.Usuario;
+import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import persistencia.DAOUsuarios;
 
 /**
  *
@@ -31,7 +34,25 @@ public class JuegoServerRMI extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        DAOUsuarios usuariosDAO = new DAOUsuarios(); 
+
+        /*Creamos tes instancias de Usuarios 
+        Usuario usuario1 = new Usuario("Usuarios 1", "uno"); 
+        Usuario usuario2 = new Usuario("Usuarios 2", "dos"); 
+        Usuario usuario3 = new Usuario("Usuarios 3", "tres");  
+
+        //Guardamos las tres instancias, guardamos el id del contacto1 para usarlo posteriormente 
+        usuariosDAO.guardaUsuarios(usuario1); 
+        usuariosDAO.guardaUsuarios(usuario2); 
+        usuariosDAO.guardaUsuarios(usuario3);  
+        */
+        //Obtenemos la lista de contactos que quedan en la base de datos y la mostramos 
+        List<Usuario> listaUsuarios = usuariosDAO.obtenListaUsuarios();
+        //System.out.println("Hay " + listaUsuarios.size() + "contactos en la base de datos");
+
+        for (Usuario c : listaUsuarios) {
+            System.out.println("-> " + c.getUsuario());
+        }
     }
     
 }
