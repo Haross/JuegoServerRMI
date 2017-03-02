@@ -5,6 +5,7 @@
  */
 package juegoserverrmi;
 
+import hibernate.Score;
 import hibernate.Usuario;
 import java.util.List;
 import javafx.application.Application;
@@ -19,6 +20,10 @@ import persistencia.DAOUsuarios;
  * @author UPChiapas
  */
 public class JuegoServerRMI extends Application {
+
+    private static void lauch(String[] args) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -35,8 +40,18 @@ public class JuegoServerRMI extends Application {
      */
     public static void main(String[] args) {
         DAOUsuarios usuariosDAO = new DAOUsuarios(); 
+        Usuario usuario = new Usuario();
 
-        /*Creamos tes instancias de Usuarios 
+        Score score1 = new Score("Usuarios 1", 10); 
+        Score score2 = new Score("Usuarios 2", 20); 
+        Score score3 = new Score("Usuarios 3", 30);  
+ 
+        /*
+        //Modificamos el contacto 2 y lo actualizamos 
+        usuario.setUsuario("Nuevo nombre del usuario 2 "); 
+        usuariosDAO.actualizaContacto(usuario);  
+
+       Creamos tes instancias de Usuarios 
         Usuario usuario1 = new Usuario("Usuarios 1", "uno"); 
         Usuario usuario2 = new Usuario("Usuarios 2", "dos"); 
         Usuario usuario3 = new Usuario("Usuarios 3", "tres");  
@@ -45,7 +60,7 @@ public class JuegoServerRMI extends Application {
         usuariosDAO.guardaUsuarios(usuario1); 
         usuariosDAO.guardaUsuarios(usuario2); 
         usuariosDAO.guardaUsuarios(usuario3);  
-        */
+        
         //Obtenemos la lista de contactos que quedan en la base de datos y la mostramos 
         List<Usuario> listaUsuarios = usuariosDAO.obtenListaUsuarios();
         //System.out.println("Hay " + listaUsuarios.size() + "contactos en la base de datos");
@@ -53,6 +68,8 @@ public class JuegoServerRMI extends Application {
         for (Usuario c : listaUsuarios) {
             System.out.println("-> " + c.getUsuario());
         }
+        */
+       lauch(args);
     }
     
 }
