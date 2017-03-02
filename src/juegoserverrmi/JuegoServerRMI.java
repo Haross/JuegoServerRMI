@@ -69,7 +69,7 @@ public class JuegoServerRMI extends Application {
             System.out.println("-> " + c.getUsuario());
         }
         */
-       lauch(args);
+       //lauch(args);
     }
     
 }
